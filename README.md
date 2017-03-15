@@ -87,6 +87,71 @@ git commit -m "Initial commit"
 As we don't have any code yet, the build may fail as eslint has nothing to
 check and will report an error instead.
 
+## Fixing the code
+
+![First build, which fails][img-build-fail]
+
+As the current code is broken, we need to fix it. The Travis CI log contains
+error information on what's broken and what is not.
+
+```
+$ npm test
+> travis-demo@1.0.0 test /home/travis/build/teamfieldtrip/travis-demo
+> eslint src/
+
+/home/travis/build/teamfieldtrip/travis-demo/src/index.js
+  1:1   error  Expected an assignment or function call and      no-unused-expressions
+               instead saw an expression
+  1:10  error  Missing space before function parentheses        space-before-function-paren
+  2:5   error  Expected indentation of 2 spaces but found 4     indent
+  2:17  error  Extra semicolon                                  semi
+  4:5   error  Expected indentation of 2 spaces but found 4     indent
+  4:28  error  Missing space before function parentheses        space-before-function-paren
+  5:9   error  Expected indentation of 6 spaces but found 8     indent
+  5:41  error  Extra semicolon                                  semi
+  6:6   error  Extra semicolon                                  semi
+  8:5   error  Expected indentation of 2 spaces but found 4     indent
+  8:60  error  Extra semicolon                                  semi
+  9:3   error  Extra semicolon                                  semi
+✖ 12 problems (12 errors, 0 warnings)
+
+npm ERR! Test failed.  See above for more details.
+
+The command "npm test" exited with 1.
+```
+
+It's a lot of errors, but not too much to worry about. After fixing the code
+and commit it, the build will succeed.
+
+```patch
+diff --git a/src/index.js b/src/index.js
+index 68f697a..f5055da 100644
+--- a/src/index.js
++++ b/src/index.js
+@@ -1,9 +1,9 @@
+-(function() {
+-    'use strict';
++(function () {
++  'use strict'
+
+-    var sayHello = function() {
+-        console.log('Mein little Füher');
+-    };
++  var sayHello = function () {
++    console.log('Mein little Füher')
++  }
+
+-    document.addEventListener('DOMContentLoaded', sayHello);
+-});
++  document.addEventListener('DOMContentLoaded', sayHello)
++}())
+```
+
+After we've applied the above patch, and committed it, the build will succeed.
+
+<!-- TODO add image -->
+![Second build, which passes][img-build-pass]
+
 <!-- Links -->
 [travis-shield]: https://img.shields.io/travis/teamfieldtrip/travis-demo.svg
 [travis-link]: https://travis-ci.org/teamfieldtrip/travis-demo
@@ -99,8 +164,9 @@ check and will report an error instead.
 
 [docs-languages]: https://docs.travis-ci.com/
 [img-languages]: img/languages.png
-
 [img-enable-repo]: img/enable-repo.png
+[img-build-fail]: img/build-failed.png
+[img-build-pass]: img/build-passed.png
 
 [travis]: https://travis-ci.org/
 [travis-mya]: https://travis-ci.org/profile/

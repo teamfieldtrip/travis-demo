@@ -1,9 +1,9 @@
-(function() {
-    'use strict';
+(function () {
+  'use strict'
 
-    var sayHello = function() {
-        console.log('Mein little Füher');
-    };
+  var sayHello = function () {
+    console.log('Mein little Füher')
+  }
 
-    document.addEventListener('DOMContentLoaded', sayHello);
-});
+  document.addEventListener('DOMContentLoaded', sayHello)
+}())
