@@ -6,6 +6,28 @@
 
 This repo contains a demo for the Travis CI codebase.
 
+## Setting up NPM
+
+We use `npm init`, which is pretty self-explanatory. The only step you need to
+really look for is the `test command` question.
+
+For that, we use eslint to check the `/src` directory.
+
+```
+test command: eslint src/
+```
+
+That's it, then we just need to install the dependencies:
+
+```
+npm install --save-dev \
+    eslint \
+    eslint-config-standard \
+    eslint-plugin-import \
+    eslint-plugin-promise \
+    eslint-plugin-standard
+```
+
 <!-- Links -->
 [travis-shield]: https://img.shields.io/travis/teamfieldtrip/travis-demo.svg
 [travis-link]: https://travis-ci.org/teamfieldtrip/travis-demo
