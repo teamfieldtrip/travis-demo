@@ -28,6 +28,22 @@ npm install --save-dev \
     eslint-plugin-standard
 ```
 
+## Configuring ESLint
+
+ESLint requires an `.eslintrc` file, which contains configuration data.
+
+Luckily, this is very easy, since the Standard code standard basically defines
+all rules for ESLint.
+
+```json
+{
+  "extends": "standard",
+  "env": {
+    "node": true
+  }
+}
+```
+
 <!-- Links -->
 [travis-shield]: https://img.shields.io/travis/teamfieldtrip/travis-demo.svg
 [travis-link]: https://travis-ci.org/teamfieldtrip/travis-demo
