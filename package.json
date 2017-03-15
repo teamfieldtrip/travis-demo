@@ -1,0 +1,19 @@
+{
+  "name": "travis-demo",
+  "version": "1.0.0",
+  "description": "Windesheim demo for Travis",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamfieldtrip/travis-demo.git"
+  },
+  "author": "Roelof Roos <github@roelof.io>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/teamfieldtrip/travis-demo/issues"
+  },
+  "homepage": "https://github.com/teamfieldtrip/travis-demo#readme"
+}
